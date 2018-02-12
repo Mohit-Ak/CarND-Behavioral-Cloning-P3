@@ -38,7 +38,6 @@ The goals / steps of this project are the following:
 
 #### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
-My project includes the following files:
 * model.py containing the script to create and train the model
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
@@ -57,9 +56,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 ### Model Architecture and Training Strategy
 
-#### 1. An appropriate model architecture has been employed
-
-Network architecture *is modified from* [NVIDIA CNN](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) is used which consists of 9 layer, including 
+#### 1. Network architecture *is modified from* [NVIDIA CNN](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) is used which consists of 9 layer, including 
 - 1 Normalization layer
 - 1 Cropping layer
 - 3 convolutional layers with subsampling and Rectified Linear Unit(RELU)
@@ -78,13 +75,11 @@ Network architecture *is modified from* [NVIDIA CNN](https://devblogs.nvidia.com
 #### 2. Attempts to reduce overfitting in the model
 - Two Dropout layers
 - Early stopping
-- Data Augmentation : 
-1) Using Left and Right Images with correction  
-2) **Image Fliping**                    
+- Data Augmentation by : 
+a) ** Using Left and Right Images with correction **  
+b) **Image Fliping**                    
  :-------------------------:
-![Image Fliping][image4]
-
-                 
+![Image Fliping][image4]               
 
 #### 3. Model parameter tuning
 
@@ -98,6 +93,7 @@ Network architecture *is modified from* [NVIDIA CNN](https://devblogs.nvidia.com
 | Validation Data Percentage	      			| 20%					 				|
 | Steering Correction for Left and Right Cameras				    | 0.2      							|
 | Dropout Prob				    | 0.5      							|
+
 #### 4. Appropriate training data
 
 Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road 
@@ -110,11 +106,11 @@ Training data was chosen to keep the vehicle driving on the road. I used a combi
 
 ### Model Architecture and Training Strategy
 
-#### 1. Solution Design Approach
+#### 1. Different Approaches tried
 
-The overall strategy for deriving a model architecture was to ...
-
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+- Convolution neural network model similar to the Alexnet with last layer as fully connected layer with one unit. 
+- Convolution neural network model similar to comma.ai ([github link (https://github.com/commaai/research/blob/master/train_steering_model.py)).
+- [NVIDIA CNN](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/)
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
@@ -128,7 +124,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
+- ** Final Approach ** - Modified  [NVIDIA CNN](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/)
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
