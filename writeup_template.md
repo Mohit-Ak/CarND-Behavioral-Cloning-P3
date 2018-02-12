@@ -1,15 +1,26 @@
 # **Behavioral Cloning** 
 ### by Mohit Arvind Khakharia
+[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
+[//]: # (Image References)
+
+[image1]: ./write_up_images/nvidia_cnn.png "Nvidia Model"
+[image3]: ./write_up_images/data_vs_steering.png "Steering Angle Distribution Image"
+[image4]: ./write_up_images/flipped_img.png "Flipped Image"
+[image5]: ./write_up_images/origina_vs_cropped.png "Original vs Cropped Image"
+[image6]: ./write_up_images/training_vs_validation.png "Training vs Validation Image"
+[image7]: ./write_up_images/m-summary.png "Model Summary"
+[image8]: ./write_up_images/flipped_img.png "Moving Track1"
+[image9]: ./write_up_images/bc.png "Banner"
+
+---
+![Banner][image9]
 ## Overview
-In this project, we will use deep neural networks and convolutional neural networks to clone driving behavior. We will train, validate and test a model using Keras. The model will output a steering angle to an autonomous vehicle.
+In this project, we will use traditional and convolutional neural networks to clone driving behavior. We will train, validate and test a model using Keras. The model will output a steering angle to an autonomous vehicle.
 
-### This project was done as part of Udacity's Self-Driving Car Nanodegree Program. The model performance has been tested on for resolution of 640x480, and graphic quality selected as 'fastest'.
+This project was done as part of Udacity's Self-Driving Car Nanodegree Program. The model performance has been tested on for resolution of 640x480, and graphic quality selected as 'fantastic'.
 
-To see the model performance click the following links:
-
-Model performance on track 1
-* model was only trained on track 1 data
+## Model performance on track 1
 
 ---
 
@@ -23,17 +34,6 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 
-[//]: # (Image References)
-
-[image1]: ./write_up_images/nvidia_cnn.png "Nvidia Model"
-[image3]: ./write_up_images/data_vs_steering.png "Steering Angle Distribution Image"
-[image4]: ./write_up_images/flipped_img.png "Flipped Image"
-[image5]: ./write_up_images/origina_vs_cropped.png "Original vs Cropped Image"
-[image6]: ./write_up_images/training_vs_validation.png.png "Training vs Validation Image"
-[image7]: ./write_up_images/m-summary.png "Model Summary"
-[image8]: ./write_up_images/flipped_img.png "Moving Track1"
-
----
 ### Files Submitted & Code Quality
 
 #### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
@@ -45,13 +45,13 @@ My project includes the following files:
 * writeup_report.md (also in README.md) summarizing the results
 * view_data.ipynb showing various aspects of the data.
 
-#### 2. Submission includes functional code
-Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
+#### 2. Functional code
+Using the Udacity provided [simulator](https://github.com/udacity/self-driving-car-sim) and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
 python drive.py model.h5
 ```
 
-#### 3. Submission code is usable and readable
+#### 3. Usability and Readability
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
@@ -70,22 +70,43 @@ Network architecture *is modified from* [NVIDIA CNN](https://devblogs.nvidia.com
  **NVIDIA CNN**                    
  :-------------------------:
  ![Nvidia Model][image1]
+ 
+  **Modified NVIDIA CNN**                    
+ :-------------------------:
+ ![Modified CNN][image7]
 
 #### 2. Attempts to reduce overfitting in the model
+- Two Dropout layers
+- Early stopping
+- Data Augmentation : 
+1) Using Left and Right Images with correction  
+2) **Image Fliping**                    
+ :-------------------------:
+![Image Fliping][image4]
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
-
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+                 
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
-
+ 
+| Hyperparameter         	|     Value	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Learning Rate        			| Used Adam optimizer(learning rate was not tuned manually) 									| 
+| Batch Size         			| 32  									| 
+| Epoch     				| 5										|
+| Training Data Percentage					| 80%								|
+| Validation Data Percentage	      			| 20%					 				|
+| Steering Correction for Left and Right Cameras				    | 0.2      							|
+| Dropout Prob				    | 0.5      							|
 #### 4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
-
-For details about how I created the training data, see the next section. 
+Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road 
+ 
+| Track1         	|     	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Forward Lap        			| 3						| 
+| Backward Lap         			| 1  									| 
+| Recovery Areas     				| 5										|
 
 ### Model Architecture and Training Strategy
 
