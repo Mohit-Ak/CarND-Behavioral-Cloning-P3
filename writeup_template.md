@@ -54,9 +54,59 @@ python drive.py model.h5
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
+#### 1. Attempts to reduce overfitting in the model
+- Two Dropout layers
+- Early stopping
+- Data Augmentation by : 
+a) ** Using Left and Right Images with correction **  
+b) **Image Fliping**                    
+ :-------------------------:
+![Image Fliping][image4]               
+
+#### 2. Model parameter tuning
+
+ 
+| Hyperparameter         	|     Value	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Learning Rate        			| Used Adam optimizer(learning rate was not tuned manually) 									| 
+| Batch Size         			| 32  									| 
+| Epoch     				| 5										|
+| Training Data Percentage					| 80%								|
+| Validation Data Percentage	      			| 20%					 				|
+| Steering Correction for Left and Right Cameras				    | 0.2      							|
+| Dropout Prob				    | 0.5      							|
+
+#### 3. Appropriate training data
+
+Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road 
+ 
+| Track1         	|     	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Forward Lap        			| 3						| 
+| Backward Lap         			| 1  									| 
+| Recovery Areas     				| 5										|
+
+## Note - The car was driven using the mouse so that we get the maximum amount of non-zero steering angle frames. The distribution of the steering angle in the training data is shown below.
+ 
+ **Frame count vs Steering Angle**                    
+ :-------------------------:
+ ![Steering Angle Distribution][image3]
+ 
+ ### Preprocessing
+ - Image Normalization : The images are normalized so that the computations are neither too big or small.
+ - Image Cropping : The sky and the car dome dont affect the steering angle and so they were cropped.
+
 ### Model Architecture and Training Strategy
 
-#### 1. Network architecture *is modified from* [NVIDIA CNN](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) is used which consists of 9 layer, including 
+#### 1. Different Approaches tried
+
+- Convolution neural network model similar to the Alexnet with last layer as fully connected layer with one unit. 
+- Convolution neural network model similar to comma.ai ([github link (https://github.com/commaai/research/blob/master/train_steering_model.py)).
+- [NVIDIA CNN](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/)
+
+#### 2. Final Model Architecture
+
+####  Network architecture *is modified from* [NVIDIA CNN](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) is used which consists of 9 layer, including 
 - 1 Normalization layer
 - 1 Cropping layer
 - 3 convolutional layers with subsampling and Rectified Linear Unit(RELU)
@@ -71,86 +121,16 @@ The model.py file contains the code for training and saving the convolution neur
   **Modified NVIDIA CNN**                    
  :-------------------------:
  ![Modified CNN][image7]
+- ** Final Approach ** - Modified  [NVIDIA CNN](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/)
 
-#### 2. Attempts to reduce overfitting in the model
-- Two Dropout layers
-- Early stopping
-- Data Augmentation by : 
-a) ** Using Left and Right Images with correction **  
-b) **Image Fliping**                    
- :-------------------------:
-![Image Fliping][image4]               
-
-#### 3. Model parameter tuning
-
- 
-| Hyperparameter         	|     Value	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Learning Rate        			| Used Adam optimizer(learning rate was not tuned manually) 									| 
-| Batch Size         			| 32  									| 
-| Epoch     				| 5										|
-| Training Data Percentage					| 80%								|
-| Validation Data Percentage	      			| 20%					 				|
-| Steering Correction for Left and Right Cameras				    | 0.2      							|
-| Dropout Prob				    | 0.5      							|
-
-#### 4. Appropriate training data
-
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road 
- 
-| Track1         	|     	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Forward Lap        			| 3						| 
-| Backward Lap         			| 1  									| 
-| Recovery Areas     				| 5										|
-
-### Model Architecture and Training Strategy
-
-#### 1. Different Approaches tried
-
-- Convolution neural network model similar to the Alexnet with last layer as fully connected layer with one unit. 
-- Convolution neural network model similar to comma.ai ([github link (https://github.com/commaai/research/blob/master/train_steering_model.py)).
-- [NVIDIA CNN](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/)
-
+#### Training Strategy
 Initially because of the small dataset, the model was memorizing and therefore there was overfitting. But, after suffucient data was collected the validation dataset became better.
 
 The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track. To improve the driving behavior in these cases, I added the recovery data to comeback from situations where the car is drifitng on the side.
 
 ![TrainingVsValidation][image6]
 
-
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
-
-#### 2. Final Model Architecture
-
-- ** Final Approach ** - Modified  [NVIDIA CNN](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/)
-
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
-
-![alt text][image1]
-
-#### 3. Creation of the Training Set & Training Process
-
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
-
-![alt text][image2]
-
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
-
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
-
-Then I repeated this process on track two in order to get more data points.
-
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
-
-![alt text][image6]
-![alt text][image7]
-
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data by ...
 
 
 I finally randomly shuffled the data set and put Y% of the data into a validation set. 
