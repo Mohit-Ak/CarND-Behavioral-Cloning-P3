@@ -124,7 +124,6 @@ Training data was chosen to keep the vehicle driving on the road. I used a combi
   **Modified NVIDIA CNN**                    
  :-------------------------:
  ![Modified CNN][image7]
-- ** Final Approach ** - Modified  [NVIDIA CNN](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/)
 
 ## Training Strategy
 Initially because of the small dataset, the model was memorizing and therefore there was overfitting. But, after suffucient data was collected the validation dataset became better.
