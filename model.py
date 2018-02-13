@@ -74,7 +74,7 @@ model = loadNvidiaModel()
 
 # Compiling and training the model. NOTE: keras has a different syntax of fit_generator its twi versions of 1 and 2
 model.compile(loss='mse', optimizer='adam')
-batch_size = 64
+batch_size = 32
 epochs = 5
 
 print("Found Keras Version 1")
