@@ -60,7 +60,7 @@ The model.py file contains the code for training and saving the convolution neur
 ## Attempts to reduce overfitting in the model
 - Two Dropout layers
 - Early stopping
-- Data Augmentation by : 
+- Data Augmentation by :   
 a) **Using Left and Right Images with correction**  
 b) **Image Fliping**                    
  :-------------------------:
