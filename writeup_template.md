@@ -3,7 +3,6 @@
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 [//]: # (Image References)
-
 [image1]: ./write_up_images/nvidia_cnn.png "Nvidia Model"
 [image3]: ./write_up_images/data_vs_steering.png "Steering Angle Distribution Image"
 [image4]: ./write_up_images/flipped_img.png "Flipped Image"
@@ -12,7 +11,7 @@
 [image7]: ./write_up_images/m-summary.png "Model Summary"
 [image8]: ./write_up_images/flipped_img.png "Moving Track1"
 [image9]: ./write_up_images/bc.png "Banner"
-[image10]: ./write_up_images/autonomous_1.gif "autonomous_1"
+
 ---
 ![Banner][image9]
 ## Overview
