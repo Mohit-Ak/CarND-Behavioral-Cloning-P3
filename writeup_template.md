@@ -58,7 +58,7 @@ The model.py file contains the code for training and saving the convolution neur
 - Two Dropout layers
 - Early stopping
 - Data Augmentation by : 
-a) ** Using Left and Right Images with correction **  
+a) **Using Left and Right Images with correction**  
 b) **Image Fliping**                    
  :-------------------------:
 ![Image Fliping][image4]               
@@ -86,7 +86,7 @@ Training data was chosen to keep the vehicle driving on the road. I used a combi
 | Backward Lap         			| 1  									| 
 | Recovery Areas     				| 5										|
 
-## Note - The car was driven using the mouse so that we get the maximum amount of non-zero steering angle frames. The distribution of the steering angle in the training data is shown below.
+#### Note - The car was driven using the mouse so that we get the maximum amount of non-zero steering angle frames. The distribution of the steering angle in the training data is shown below.
  
  **Frame count vs Steering Angle**                    
  :-------------------------:
