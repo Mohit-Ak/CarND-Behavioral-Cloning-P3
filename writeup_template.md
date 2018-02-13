@@ -134,9 +134,21 @@ The final step was to run the simulator to see how well the car was driving arou
 
 ![TrainingVsValidation][image6]
 
-At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
+```
+0400/30347 [==============================] - 34s - loss: 0.0049 - val_loss: 0.0031
+Epoch 2/5
+30358/30347 [==============================] - 32s - loss: 0.0036 - val_loss: 0.0026
+Epoch 3/5
+30400/30347 [==============================] - 32s - loss: 0.0037 - val_loss: 0.0033
+Epoch 4/5
+30358/30347 [==============================] - 32s - loss: 0.0036 - val_loss: 0.0031
+Epoch 5/5
+30400/30347 [==============================] - 32s - loss: 0.0035 - val_loss: 0.0027
+```
 
-
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+| Track 1         	|     	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Training Loss        			| 0.0035						| 
+| Validation Loss         			| 0.0027  									|
+## RESULT
+The vehicle is able to drive autonomously around the track without leaving the road.
