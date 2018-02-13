@@ -19,7 +19,7 @@
 ## Overview
 In this project, we will use traditional and convolutional neural networks to clone driving behavior. We will train, validate and test a model using Keras. The model will output a steering angle to an autonomous vehicle.
 
-This project was done as part of Udacity's Self-Driving Car Nanodegree Program. The model performance has been tested on for resolution of 640x480, and graphic quality selected as 'fantastic'.
+This project was done as a part of Udacity's Self-Driving Car Nanodegree Program. The model's performance has been tested on for resolution of 640x480, and graphic quality selected as 'fantastic'.
 
 ## Model performance on track 1
 
@@ -41,11 +41,11 @@ This project was done as part of Udacity's Self-Driving Car Nanodegree Program. 
 
 #### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
-* model.py containing the script to create and train the model
-* drive.py for driving the car in autonomous mode
-* model.h5 containing a trained convolution neural network 
-* writeup_report.md (also in README.md) summarizing the results
-* view_data.ipynb showing various aspects of the data.
+* model.py contains the script to create and train the model
+* drive.py drives the car in autonomous mode
+* model.h5 contains a trained convolution neural network 
+* writeup_report.md (also in README.md) summarizes the results
+* view_data.ipynb shows various aspects of the data.
 
 #### 2. Functional code
 Using the Udacity provided [simulator](https://github.com/udacity/self-driving-car-sim) and my drive.py file, the car can be driven autonomously around the track by executing 
