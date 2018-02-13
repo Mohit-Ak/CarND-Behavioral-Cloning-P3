@@ -12,7 +12,8 @@
 [image7]: ./write_up_images/m-summary.png "Model Summary"
 [image8]: ./write_up_images/flipped_img.png "Moving Track1"
 [image9]: ./write_up_images/bc.png "Banner"
-
+[image10]: ./write_up_images/autonomous_1.gif "autonomous_1"
+[image11]: ./write_up_images/autonomous_2.gif "autonomous_2"
 ---
 ![Banner][image9]
 ## Overview
