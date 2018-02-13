@@ -28,9 +28,8 @@ This project was done as part of Udacity's Self-Driving Car Nanodegree Program. 
  ![DriverCam][image10] |  ![AerialCam][image11]
 ---
 
-**Behavioral Cloning Project**
+## Goals
 
-The goals / steps of this project are the following:
 * Use the [simulator](https://github.com/udacity/self-driving-car-sim) to collect data of good driving behavior
 * Build, a convolution neural network in Keras that predicts steering angles from images
 * Train and validate the model with a training and validation set
@@ -38,7 +37,7 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 
-### Files Submitted & Code Quality
+## Files Submitted & Code Quality
 
 #### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
@@ -58,7 +57,7 @@ python drive.py model.h5
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-#### 1. Attempts to reduce overfitting in the model
+## Attempts to reduce overfitting in the model
 - Two Dropout layers
 - Early stopping
 - Data Augmentation by : 
@@ -67,7 +66,7 @@ b) **Image Fliping**
  :-------------------------:
 ![Image Fliping][image4]               
 
-#### 2. Model parameter tuning
+## Model parameter tuning
 
  
 | Hyperparameter         	|     Value	        					| 
@@ -80,7 +79,7 @@ b) **Image Fliping**
 | Steering Correction for Left and Right Cameras				    | 0.2      							|
 | Dropout Prob				    | 0.5      							|
 
-#### 3. Appropriate training data
+## Training data
 
 Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road 
  
@@ -96,11 +95,11 @@ Training data was chosen to keep the vehicle driving on the road. I used a combi
  :-------------------------:
  ![Steering Angle Distribution][image3]
  
- ### Preprocessing
+ ## Preprocessing
  - Image Normalization : The images are normalized so that the computations are neither too big or small.
  - Image Cropping : The sky and the car dome dont affect the steering angle and so they were cropped.
 
-### Model Architecture and Training Strategy
+## Model Architecture and Training Strategy
 
 #### 1. Different Approaches tried
 
@@ -127,7 +126,7 @@ Training data was chosen to keep the vehicle driving on the road. I used a combi
  ![Modified CNN][image7]
 - ** Final Approach ** - Modified  [NVIDIA CNN](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/)
 
-#### Training Strategy
+## Training Strategy
 Initially because of the small dataset, the model was memorizing and therefore there was overfitting. But, after suffucient data was collected the validation dataset became better.
 
 The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track. To improve the driving behavior in these cases, I added the recovery data to comeback from situations where the car is drifitng on the side.
@@ -150,5 +149,17 @@ Epoch 5/5
 |:---------------------:|:---------------------------------------------:| 
 | Training Loss        			| 0.0035						| 
 | Validation Loss         			| 0.0027  									|
+
 ## RESULT
 The vehicle is able to drive autonomously around the track without leaving the road.
+
+## Future Improvements
+- More augmented data using brightness, hue and scaled images so that the CNN learns to identify the road curvature under different lighting conditions.
+- Add different types of shadows onto the image frames so that the detection is shadow agnostic.
+- Use [CAPSULE NETWORKS](https://github.com/naturomics/CapsNet-Tensorflow) so that the detection can tackle pixel attacks and maintain the positional constraints(E.g - An image of a road in the Advertisement banner on the side of the track should not effect the decision making process)
+
+## Model performance on Track 1
+
+ **DRIVER CAM**                     |  **AERIAL CAM** 
+ :-------------------------:|:-------------------------:
+ ![DriverCam][image10] |  ![AerialCam][image11]
